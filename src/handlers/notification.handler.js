@@ -40,7 +40,7 @@ module.exports = (io, socket) => {
 
     const createNotification = async (payload) => {
         try {
-            const notification = new Notification({...payload, createdBy: socket._id});
+            const notification = new Notification({...payload, createdBy: socket.user._id});
             await notification.save();
 
             // emite evento al cliente que creó la notificación
